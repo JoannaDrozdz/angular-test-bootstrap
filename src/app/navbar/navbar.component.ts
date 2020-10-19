@@ -18,4 +18,7 @@ export class NavbarComponent implements OnInit {
   goToFeatures(): void {
     this.navTitle = 'Features page';
   }
+  getData(event: any): void {
+    console.log(event);
+  }
 }
