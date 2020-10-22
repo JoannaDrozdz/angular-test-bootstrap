@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   navTitle = 'Angular test bootstrap';
+  showSearch = true;
 
   constructor() {}
 
@@ -17,6 +18,9 @@ export class NavbarComponent implements OnInit {
   }
   goToFeatures(): void {
     this.navTitle = 'Features page';
+  }
+  toggleSearch(): void {
+    this.showSearch = !this.showSearch;
   }
   getData(event: any): void {
     console.log(event);
