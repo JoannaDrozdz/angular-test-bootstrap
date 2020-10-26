@@ -6,31 +6,12 @@
   <button class="btn btn-secondary">test 2</button>
 
   <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title">
-    </div>
-    <div class="col-md-6">
-      <input class="form-control mr-sm-2" type="text" placeholder="Description" aria-label="Description">
-    </div>
-  </div>
-  <hr>
-  <button type="button" class="btn btn-primary">Add movie</button>
+  <app-movie-input></app-movie-input>
   <hr>
 
-  <div *ngFor="let movie of movies">
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{movie.title}}</h5>
-            <p class="card-text">{{movie.description}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <app-movie-element
+    *ngFor="let movie of movies"
+    [movieElement]="movie"
+  ></app-movie-element>
 
 </div>

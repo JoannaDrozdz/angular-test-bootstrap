@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MovieElementComponent } from './movie-element/movie-element.component';
+import { MovieInputComponent } from './movie-input/movie-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    MovieElementComponent,
+    MovieInputComponent
   ],
   imports: [
     BrowserModule,
