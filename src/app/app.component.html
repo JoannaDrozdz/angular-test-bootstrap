@@ -1,9 +1,36 @@
-<div class="container" >
+<app-navbar></app-navbar>
+<div class="container">
   <h1>test Hello</h1>
-  <button type="button" class="btn btn-primary">
-    Single Button
-  </button>
+  <p>random app text</p>
+  <button type="button" class="btn btn-primary">Single Button</button>
   <button class="btn btn-secondary">test 2</button>
-  <button class="btn btn-primary testy">new button</button>
-  <button class="btn btn-primary testy">new button 2</button>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title">
+    </div>
+    <div class="col-md-6">
+      <input class="form-control mr-sm-2" type="text" placeholder="Description" aria-label="Description">
+    </div>
+  </div>
+  <hr>
+  <button type="button" class="btn btn-primary">Add movie</button>
+  <hr>
+
+  <div *ngFor="let movie of movies">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <p class="card-text">{{movie.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
