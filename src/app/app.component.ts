@@ -31,4 +31,13 @@ export class AppComponent {
       year: '2003r',
     },
   ];
+
+  movieAdd(movieData: {
+    title: string;
+    description: string;
+    year: string;
+  }): void {
+    console.log(movieData);
+    this.movies.push(movieData);
+  }
 }
