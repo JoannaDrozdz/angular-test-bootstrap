@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Movie } from '../movie/movie.model';
 
 @Component({
   selector: 'app-movie-input',
@@ -6,27 +7,27 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./movie-input.component.scss'],
 })
 export class MovieInputComponent implements OnInit {
-  newMovie: { title: string; description: string; year: string };
-  @Output() movieCreated = new EventEmitter<{
-    title: string;
-    description: string;
-    year: string;
-  }>();
+  // newMovie: Movie;
+  @Output() movieCreated = new EventEmitter<Movie>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   addMovie(movieTitle, movieDescription): void {
-    this.newMovie = {
+/*    this.newMovie = {
       title: movieTitle.value,
       description: movieDescription.value,
       year: '2006',
     };
-    this.movieCreated.emit({
+        this.movieCreated.emit({
       title: this.newMovie.title,
       description: this.newMovie.description,
       year: this.newMovie.year,
-    });
+    });*/
+
+    this.movieCreated.emit(
+      new Movie(movieTitle.value, movieDescription.value, '2006')
+    );
   }
 }

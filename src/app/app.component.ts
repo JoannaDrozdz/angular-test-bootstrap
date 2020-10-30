@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Movie } from './movie/movie.model';
 
 @Component({
   selector: 'app-root',
@@ -32,11 +33,7 @@ export class AppComponent {
     },
   ];
 
-  movieAdd(movieData: {
-    title: string;
-    description: string;
-    year: string;
-  }): void {
+  movieAdd(movieData: Movie): void {
     console.log(movieData);
     this.movies.push(movieData);
   }
