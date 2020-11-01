@@ -34,7 +34,7 @@ export class AppComponent {
   ];
 
   movieAdd(movieData: Movie): void {
-    console.log(movieData);
+    // console.log(movieData);
     this.movies.push(movieData);
   }
 }
