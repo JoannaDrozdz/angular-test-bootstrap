@@ -6,7 +6,7 @@
       placeholder="Title"
       aria-label="Title"
       #movieTitle
-    >
+    />
   </div>
   <div class="col-md-6">
     <input
@@ -15,10 +15,22 @@
       placeholder="Description"
       aria-label="Description"
       #movieDescription
-    >
+    />
   </div>
 </div>
-<hr>
-<button type="button" class="btn btn-primary mr-2" (click)="addMovie(movieTitle, movieDescription)">Add movie old version</button>
-<button type="button" class="btn btn-primary" (click)="addMovie2()">Add movie new with @ViewChild</button>
-
+<hr />
+<button
+  type="button"
+  class="btn btn-primary mr-2"
+  (click)="addMovie(movieTitle, movieDescription)"
+>
+  Add movie old version
+</button>
+<button type="button" class="btn btn-primary" (click)="addMovie2()">
+  Add movie new with @ViewChild
+</button>
+<hr />
+<p [ngClass]="{ redText: isRedText }">Przykładowy tekst</p>
+<button type="button" class="btn btn-primary" (click)="toggleRedText()">
+  Change text button
+</button>
