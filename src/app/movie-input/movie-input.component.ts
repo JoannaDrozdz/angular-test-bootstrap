@@ -19,9 +19,15 @@ export class MovieInputComponent implements OnInit {
   @ViewChild('movieTitle') movieTitleData: ElementRef;
   @ViewChild('movieDescription') movieDescriptionData: ElementRef;
 
+  isRedText = false;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleRedText(): void {
+    this.isRedText = !this.isRedText;
+  }
 
   addMovie(
     movieTitle: HTMLInputElement,
@@ -39,15 +45,12 @@ export class MovieInputComponent implements OnInit {
         });*/
 
     this.movieCreated.emit(
-      new Movie(
-        movieTitle.value,
-        movieDescription.value,
-        '2006'
-      )
+      new Movie(movieTitle.value, movieDescription.value, '2006')
     );
   }
 
   addMovie2(): void {
+    console.log('movieTitleData 2: ', this.movieTitleData.nativeElement.value);
     console.log('movieTitleData: ', this.movieTitleData.nativeElement.value);
     console.log(
       'movieDescriptionData: ',
