@@ -50,6 +50,7 @@ export class MovieInputComponent implements OnInit {
   }
 
   addMovie2(): void {
+    console.log('movieTitleData 2: ', this.movieTitleData.nativeElement.value);
     console.log('movieTitleData: ', this.movieTitleData.nativeElement.value);
     console.log(
       'movieDescriptionData: ',
