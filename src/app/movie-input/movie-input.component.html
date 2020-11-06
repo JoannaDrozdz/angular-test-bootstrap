@@ -30,7 +30,8 @@
   Add movie new with @ViewChild
 </button>
 <hr />
-<p [ngClass]="{ redText: isRedText }">Przykładowy tekst</p>
+<p [ngClass]="{ redText: isRedText }" appBasicHighlight>Przykładowy tekst</p>
+<p appBasicHighlight>Nasteępy tekst</p>
 <button type="button" class="btn btn-primary" (click)="toggleRedText()">
   Change text button
 </button>
