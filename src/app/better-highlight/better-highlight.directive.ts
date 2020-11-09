@@ -2,7 +2,7 @@ import {
   Directive,
   ElementRef,
   HostBinding,
-  HostListener,
+  HostListener, Input,
   OnInit,
   Renderer2,
 } from '@angular/core';
@@ -11,6 +11,7 @@ import {
   selector: '[appBetterHighlight]',
 })
 export class BetterHighlightDirective implements OnInit {
+  @Input() customTextColor = '#212529';
   @HostBinding('style.backgroundColor') backgroundColor: string;
   @HostBinding('style.color') textColor: string;
 
@@ -18,7 +19,7 @@ export class BetterHighlightDirective implements OnInit {
 
   ngOnInit(): void {
     // this.renderer.setStyle(this.elToChange.nativeElement, 'background-color', 'gray');
-    this.textColor = '#212529';
+    this.textColor = this.customTextColor;
   }
 
   @HostListener('mouseenter') mouseOver(eventData: Event): void {
@@ -32,11 +33,11 @@ export class BetterHighlightDirective implements OnInit {
 
   @HostListener('mouseleave') mouseLeave(eventData: Event): void {
     this.backgroundColor = 'transparent';
-    this.textColor = '#212529';
+    this.textColor = this.customTextColor;
   }
 
   @HostListener('click') mouseClick(eventData: Event): void {
     this.backgroundColor = this.backgroundColor === 'red' ? 'gray' : 'red';
-    this.textColor = this.textColor === '#212529' ? 'white' : '#212529';
+    this.textColor = this.textColor === this.customTextColor ? 'white' : '#212529';
   }
 }
