@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Movie } from '../movie/movie.model';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movie-input',
@@ -21,7 +22,7 @@ export class MovieInputComponent implements OnInit {
 
   isRedText = false;
 
-  constructor() {}
+  constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {}
 
@@ -33,6 +34,9 @@ export class MovieInputComponent implements OnInit {
     movieTitle: HTMLInputElement,
     movieDescription: HTMLInputElement
   ): void {
+    this.moviesService.movieAdd(
+      new Movie(movieTitle.value, movieDescription.value, '2006')
+    );
     /*    this.newMovie = {
           title: movieTitle.value,
           description: movieDescription.value,
@@ -44,24 +48,24 @@ export class MovieInputComponent implements OnInit {
           year: this.newMovie.year,
         });*/
 
-    this.movieCreated.emit(
-      new Movie(movieTitle.value, movieDescription.value, '2006')
-    );
+    // this.movieCreated.emit(
+    //   new Movie(movieTitle.value, movieDescription.value, '2006')
+    // );
   }
 
-  addMovie2(): void {
-    console.log('movieTitleData: ', this.movieTitleData.nativeElement.value);
-    console.log(
-      'movieDescriptionData: ',
-      this.movieDescriptionData.nativeElement.value
-    );
-
-    this.movieCreated.emit(
-      new Movie(
-        this.movieTitleData.nativeElement.value,
-        this.movieDescriptionData.nativeElement.value,
-        '2006'
-      )
-    );
-  }
+  // addMovie2(): void {
+  //   console.log('movieTitleData: ', this.movieTitleData.nativeElement.value);
+  //   console.log(
+  //     'movieDescriptionData: ',
+  //     this.movieDescriptionData.nativeElement.value
+  //   );
+  //
+  //   this.movieCreated.emit(
+  //     new Movie(
+  //       this.movieTitleData.nativeElement.value,
+  //       this.movieDescriptionData.nativeElement.value,
+  //       '2006'
+  //     )
+  //   );
+  // }
 }

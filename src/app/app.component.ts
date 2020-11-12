@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { LoggingService } from './logging.service';
 import { Movie } from './movie/movie.model';
+import {MoviesService} from "./movies.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [LoggingService],
+  providers: [LoggingService, MoviesService],
 })
-export class AppComponent {
-  constructor(private loggingService: LoggingService) {}
+export class AppComponent implements OnInit {
+  constructor(private loggingService: LoggingService, private moviesService: MoviesService) {}
 
   title = 'testowa apka';
 
@@ -19,27 +20,16 @@ export class AppComponent {
     year: '2000r',
   };
 
-  movies = [
-    {
-      title: 'Szklana pułapka 1',
-      description: 'Lorem ipsum',
-      year: '2000r',
-    },
-    {
-      title: 'Szklana pułapka 2',
-      description: 'Lorem ipsum',
-      year: '2002r',
-    },
-    {
-      title: 'Szklana pułapka 3',
-      description: 'Lorem ipsum',
-      year: '2003r',
-    },
-  ];
+  movies: Movie[] = [];
 
-  movieAdd(movieData: Movie): void {
-    // console.log(movieData);
-    this.loggingService.logStatusChange('test');
-    this.movies.push(movieData);
+  ngOnInit(): void{
+    this.movies = this.moviesService.movies;
+
   }
+
+  // movieAdd(movieData: Movie): void {
+  //   // console.log(movieData);
+  //   this.loggingService.logStatusChange('test');
+  //   this.movies.push(movieData);
+  // }
 }
