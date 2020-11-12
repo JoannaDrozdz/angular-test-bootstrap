@@ -2,7 +2,8 @@ import {
   Directive,
   ElementRef,
   HostBinding,
-  HostListener, Input,
+  HostListener,
+  Input,
   OnInit,
   Renderer2,
 } from '@angular/core';
@@ -38,6 +39,7 @@ export class BetterHighlightDirective implements OnInit {
 
   @HostListener('click') mouseClick(eventData: Event): void {
     this.backgroundColor = this.backgroundColor === 'red' ? 'gray' : 'red';
-    this.textColor = this.textColor === this.customTextColor ? 'white' : '#212529';
+    this.textColor =
+      this.textColor === this.customTextColor ? 'white' : '#212529';
   }
 }

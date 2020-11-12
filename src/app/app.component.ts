@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { LoggingService } from './logging.service';
 import { Movie } from './movie/movie.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [LoggingService],
 })
 export class AppComponent {
+  constructor(private loggingService: LoggingService) {}
+
   title = 'testowa apka';
 
   movie = {
@@ -35,6 +39,7 @@ export class AppComponent {
 
   movieAdd(movieData: Movie): void {
     // console.log(movieData);
+    this.loggingService.logStatusChange('test');
     this.movies.push(movieData);
   }
 }
