@@ -1,5 +1,8 @@
 import { Movie } from './movie/movie.model';
+import {Injectable} from '@angular/core';
+import {LoggingService} from './logging.service';
 
+@Injectable({providedIn: 'root'})
 export class MoviesService {
   movies = [
     {
@@ -18,7 +21,14 @@ export class MoviesService {
       year: '2003r',
     },
   ];
+
+  constructor(
+    private loggingService: LoggingService,
+  ) {}
+
   movieAdd(movieData: Movie): void {
     this.movies.push(movieData);
+    this.loggingService.logStatusChange('movie add');
   }
 }
+

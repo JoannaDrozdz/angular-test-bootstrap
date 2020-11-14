@@ -1,16 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoggingService } from './logging.service';
 import { Movie } from './movie/movie.model';
-import {MoviesService} from "./movies.service";
+import { MoviesService } from './movies.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [LoggingService, MoviesService],
+  providers: [],
 })
 export class AppComponent implements OnInit {
-  constructor(private loggingService: LoggingService, private moviesService: MoviesService) {}
+  constructor(
+    private loggingService: LoggingService,
+    private moviesService: MoviesService
+  ) {}
 
   title = 'testowa apka';
 
@@ -22,9 +25,8 @@ export class AppComponent implements OnInit {
 
   movies: Movie[] = [];
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.movies = this.moviesService.movies;
-
   }
 
   // movieAdd(movieData: Movie): void {
