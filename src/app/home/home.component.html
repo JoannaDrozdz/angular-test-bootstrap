@@ -1,0 +1,13 @@
+<h1>test Hello</h1>
+<p>random app text</p>
+<button type="button" class="btn btn-primary">Single Button</button>
+<button class="btn btn-secondary">test 2</button>
+
+<hr>
+<app-movie-input></app-movie-input>
+<hr>
+
+<app-movie-element
+  *ngFor="let movie of movies"
+  [movieElement]="movie"
+></app-movie-element>

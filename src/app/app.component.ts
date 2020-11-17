@@ -15,18 +15,18 @@ export class AppComponent implements OnInit {
     private moviesService: MoviesService
   ) {}
 
-  title = 'testowa apka';
+  // title = 'testowa apka';
 
-  movie = {
-    title: 'Szklana pułapka 1',
-    description: 'Lorem ipsum',
-    year: '2000r',
-  };
+  // movie = {
+  //   title: 'Szklana pułapka 1',
+  //   description: 'Lorem ipsum',
+  //   year: '2000r',
+  // };
 
-  movies: Movie[] = [];
+  // movies: Movie[] = [];
 
   ngOnInit(): void {
-    this.movies = this.moviesService.movies;
+    // this.movies = this.moviesService.movies;
   }
 
   // movieAdd(movieData: Movie): void {
