@@ -6,13 +6,13 @@
   <div class="collapse navbar-collapse">
     <div>
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/" (click)="goToHome()">Home</a>
+        <a class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/" (click)="goToHome()">Home</a>
         <a class="nav-item nav-link" routerLinkActive="active" routerLink="/features" (click)="goToFeatures()"
           >Features</a
         >
         <a class="nav-item nav-link" routerLinkActive="active" routerLink="/movies">Movies</a>
         <a class="nav-item nav-link" routerLinkActive="active" [routerLink]="[ '/movies' ]">Movies 2</a>
-        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/" (click)="toggleSearch()"
+        <a class="nav-item nav-link" routerLink="/" (click)="toggleSearch()"
           >ToggleSearch</a
         >
       </div>

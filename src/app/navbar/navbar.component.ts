@@ -14,10 +14,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   goToHome(): void {
-    this.navTitle = 'Angular test bootstrap';
+    // this.navTitle = 'Angular test bootstrap';
   }
   goToFeatures(): void {
-    this.navTitle = 'Features page';
+    // this.navTitle = 'Features page';
   }
   toggleSearch(): void {
     this.showSearch = !this.showSearch;
