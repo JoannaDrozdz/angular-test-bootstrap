@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Movie } from '../movie/movie.model';
 import { MoviesService } from '../movies.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-movie-input',
@@ -22,7 +23,7 @@ export class MovieInputComponent implements OnInit {
 
   isRedText = false;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -37,6 +38,7 @@ export class MovieInputComponent implements OnInit {
     this.moviesService.movieAdd(
       new Movie(movieTitle.value, movieDescription.value, '2006')
     );
+    // this.router.navigate(['/movies']);
     /*    this.newMovie = {
           title: movieTitle.value,
           description: movieDescription.value,
