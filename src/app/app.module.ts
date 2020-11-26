@@ -13,11 +13,13 @@ import { BetterHighlightDirective } from './better-highlight/better-highlight.di
 import { FeaturesComponent } from './features/features.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HomeComponent } from './home/home.component';
+import { MovieComponent } from './movie/movie.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'features', component: FeaturesComponent },
   { path: 'movies', component: MoviesComponent },
+  { path: 'movies/:id', component: MovieComponent },
 ];
 
 @NgModule({
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
     FeaturesComponent,
     MoviesComponent,
     HomeComponent,
+    MovieComponent,
   ],
   imports: [BrowserModule, ButtonsModule, RouterModule.forRoot(appRoutes)],
   providers: [],

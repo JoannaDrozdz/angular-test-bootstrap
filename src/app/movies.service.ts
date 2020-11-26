@@ -6,16 +6,19 @@ import {LoggingService} from './logging.service';
 export class MoviesService {
   movies = [
     {
+      id: 1,
       title: 'Szklana pułapka 1',
       description: 'Lorem ipsum',
       year: '2000r',
     },
     {
+      id: 2,
       title: 'Szklana pułapka 2',
       description: 'Lorem ipsum',
       year: '2002r',
     },
     {
+      id: 3,
       title: 'Szklana pułapka 3',
       description: 'Lorem ipsum',
       year: '2003r',

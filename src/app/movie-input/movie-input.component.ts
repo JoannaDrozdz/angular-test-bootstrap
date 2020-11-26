@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Movie } from '../movie/movie.model';
 import { MoviesService } from '../movies.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-input',
@@ -35,8 +35,9 @@ export class MovieInputComponent implements OnInit {
     movieTitle: HTMLInputElement,
     movieDescription: HTMLInputElement
   ): void {
+    let id = this.moviesService.movies[this.moviesService.movies.length - 1].id;
     this.moviesService.movieAdd(
-      new Movie(movieTitle.value, movieDescription.value, '2006')
+      new Movie(id + 1, movieTitle.value, movieDescription.value, '2006')
     );
     // this.router.navigate(['/movies']);
     /*    this.newMovie = {
