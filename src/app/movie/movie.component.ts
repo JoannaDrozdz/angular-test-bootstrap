@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from './movie.model';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movie',
@@ -9,11 +10,19 @@ import { Movie } from './movie.model';
 })
 export class MovieComponent implements OnInit {
   movie: Movie;
-  test: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private moviesService: MoviesService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params.id)
+    let id: number;
+    id = +this.route.snapshot.params.id;
+    this.movie = this.moviesService.movies.filter((movie) => movie.id === id)[0]
+      ? this.moviesService.movies.filter((movie) => movie.id === id)[0]
+      : null;
+    console.log(this.moviesService.movies.filter((movie) => movie.id === id));
+    console.log(id);
   }
 }
