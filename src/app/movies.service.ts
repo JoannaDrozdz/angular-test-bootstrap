@@ -33,5 +33,10 @@ export class MoviesService {
     this.movies.push(movieData);
     this.loggingService.logStatusChange('movie add');
   }
+
+  getMovie(id: number): Movie {
+    // return this.movies[id - 1];
+    return this.movies.filter( movie => movie.id === id)[0];
+  }
 }
 

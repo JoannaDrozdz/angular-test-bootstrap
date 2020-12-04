@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Movie } from './movie.model';
 import { MoviesService } from '../movies.service';
 
@@ -10,6 +10,7 @@ import { MoviesService } from '../movies.service';
 })
 export class MovieComponent implements OnInit {
   movie: Movie;
+  id: number;
 
   constructor(
     private moviesService: MoviesService,
@@ -17,12 +18,16 @@ export class MovieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id: number;
-    id = +this.route.snapshot.params.id;
-    this.movie = this.moviesService.movies.filter((movie) => movie.id === id)[0]
-      ? this.moviesService.movies.filter((movie) => movie.id === id)[0]
-      : null;
-    console.log(this.moviesService.movies.filter((movie) => movie.id === id));
-    console.log(id);
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.movie = this.moviesService.getMovie(this.id);
+    });
+    //   let id: number;
+    //   id = +this.route.snapshot.params.id;
+    //   this.movie = this.moviesService.movies.filter((movie) => movie.id === id)[0]
+    //     ? this.moviesService.movies.filter((movie) => movie.id === id)[0]
+    //     : null;
+    //   console.log(this.moviesService.movies.filter((movie) => movie.id === id));
+    //   console.log(id);
   }
 }
