@@ -22,6 +22,7 @@ export class MovieComponent implements OnInit {
       this.id = +params['id'];
       this.movie = this.moviesService.getMovie(this.id);
     });
+    
     //   let id: number;
     //   id = +this.route.snapshot.params.id;
     //   this.movie = this.moviesService.movies.filter((movie) => movie.id === id)[0]
